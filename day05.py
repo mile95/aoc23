@@ -1,11 +1,11 @@
 with open("input.txt") as f:
-    sections = f.read().split('\n\n')
+    sections = f.read().split("\n\n")
 
 
-seeds = [int(x) for x in sections[0].split(':')[1].split()]
+seeds = [int(x) for x in sections[0].split(":")[1].split()]
 
 for section in sections[1:]:
-    lines = section.split('\n')[1:]
+    lines = section.split("\n")[1:]
     changes = []
     for s in seeds:
         found = False
@@ -24,10 +24,10 @@ for section in sections[1:]:
 print(min(seeds))
 
 
-seeds = [int(x) for x in sections[0].split(':')[1].split()]
+seeds = [int(x) for x in sections[0].split(":")[1].split()]
 seeds_with_max_min = []
 for s in range(0, len(seeds), 2):
-    seeds_with_max_min.append((seeds[s], seeds[s]+seeds[s+1]))
+    seeds_with_max_min.append((seeds[s], seeds[s] + seeds[s + 1]))
 
 seeds = seeds_with_max_min
 location = 0
@@ -36,7 +36,7 @@ while not done:
     location += 1
     cv = location
     for section in reversed(sections[1:]):
-        lines = section.split('\n')[1:]
+        lines = section.split("\n")[1:]
         found = False
         for line in reversed(lines):
             if found:
@@ -49,7 +49,7 @@ while not done:
                     cv = source_start + offset
                     found = True
 
-    for i, (l,u) in enumerate(seeds):
-        if cv >= l and cv <=u:
+    for i, (l, u) in enumerate(seeds):
+        if cv >= l and cv <= u:
             print(location)
             done = True
