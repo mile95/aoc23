@@ -8,6 +8,9 @@ Running any python solution (assuming input is placed in input.txt)
 
     python3 dayX.py
 
+
+(Running day25.py requires installation of networkx, `pip3 install networkx`)
+
 Running any bash solution
 
     ./dayX.sh    
